@@ -155,8 +155,20 @@ inputPerson.Print();
 Console.WriteLine();
 Console.WriteLine("Нажмите любую клавишу для продолжения");
 Console.ReadKey();
+Console.WriteLine();
 
+// Создание случайной персоны
+Console.WriteLine();
+Console.WriteLine("Создание случайной персоны:");
+Person randomPerson = Person.GetRandomPerson();
 
+// Вывод случайно созданной персоны
+randomPerson.Print();
+
+// Завершение программы
+Console.WriteLine();
+Console.WriteLine("Нажмите Enter для завершения программы.");
+Console.ReadLine();
 
 Console.ReadLine();
 

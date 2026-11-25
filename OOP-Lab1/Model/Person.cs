@@ -113,5 +113,42 @@ namespace Model
 			Console.WriteLine($"Возраст: {Age}");
 			Console.WriteLine($"Пол: {Gender}");
 		}
+
+		/// <summary>
+		/// Создаёт случайную персону
+		/// </summary>
+		/// <returns>Случайно созданная персона</returns>
+		public static Person GetRandomPerson()
+		{
+			string[] maleNames = { "Иван", "Сергей", "Дмитрий" };
+			string[] femaleNames = { "Анна", "Мария", "Елена" };
+
+			string[] maleSurNames = { "Иванов", "Петров", "Сидоров" };
+			string[] femaleSurNames = { "Иванова", "Петрова", "Сидорова" };
+
+			Random random = Random.Shared;
+
+			Gender gender = random.Next(2) == 0
+				? Gender.Male
+				: Gender.Female;
+
+			string firstName;
+			string surName;
+
+			if (gender == Gender.Male)
+			{
+				firstName = maleNames[random.Next(maleNames.Length)];
+				surName = maleSurNames[random.Next(maleSurNames.Length)];
+			}
+			else
+			{
+				firstName = femaleNames[random.Next(femaleNames.Length)];
+				surName = femaleSurNames[random.Next(femaleSurNames.Length)];
+			}
+
+			int age = random.Next(18, 71);
+
+			return new Person(firstName, surName, age, gender);
+		}
 	}
 }
