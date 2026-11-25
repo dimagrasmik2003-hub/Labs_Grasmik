@@ -87,5 +87,31 @@ namespace Model
 			Age = age;
 			Gender = gender;
 		}
+
+		/// <summary>
+		/// Считывает данные персоны с клавиатуры
+		/// </summary>
+		public void ReadFromConsole()
+		{
+			Console.Write("Введите имя: ");
+			FirstName = Console.ReadLine() ?? string.Empty;
+			Console.Write("Введите фамилию: ");
+			SurName = Console.ReadLine() ?? string.Empty;
+			Console.Write("Введите возраст: ");
+			Age = int.Parse(Console.ReadLine() ?? string.Empty);
+			Console.Write("Введите пол (Male/Female): ");
+			Gender = Enum.Parse<Gender>(Console.ReadLine() ?? string.Empty);
+		}
+
+		/// <summary>
+		/// Выводит информацию о персоне на экран
+		/// </summary>
+		public void Print()
+		{
+			Console.WriteLine($"Имя: {FirstName}");
+			Console.WriteLine($"Фамилия: {SurName}");
+			Console.WriteLine($"Возраст: {Age}");
+			Console.WriteLine($"Пол: {Gender}");
+		}
 	}
 }

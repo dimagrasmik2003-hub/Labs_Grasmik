@@ -135,6 +135,29 @@ if (secondList.Count == 0)
 	Console.WriteLine("Персоны не добавлены. Второй список пуст");
 }
 
+// Демонстрация чтения и вывода персоны 
+Console.WriteLine();
+Console.WriteLine("Демонстрация работы методов класса Person:");
+Console.WriteLine();
+
+Person inputPerson = new Person(
+	"Тест", "Тестов", 20, Gender.Male);
+
+// Чтение данных персоны с клавиатуры
+inputPerson.ReadFromConsole();
+
+// Вывод введённых данных
+Console.WriteLine();
+Console.WriteLine("Введённые данные персоны:");
+inputPerson.Print();
+
+// Ожидание завершения программы
+Console.WriteLine();
+Console.WriteLine("Нажмите любую клавишу для продолжения");
+Console.ReadKey();
+
+
+
 Console.ReadLine();
 
 
