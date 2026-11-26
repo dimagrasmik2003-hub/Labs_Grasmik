@@ -19,19 +19,15 @@ namespace Model
 		/// <summary>
 		/// Фамилия персоны
 		/// </summary>
-		/// //TODO: RSDN
-		private string _surName = string.Empty;
+		/// //TODO: RSDN +
+		private string _surname = string.Empty;
 
 		/// <summary>
 		/// Возраст персоны
 		/// </summary>
 		private int _age;
 
-		//TODO: remove
-		/// <summary>
-		/// Пол персоны
-		/// </summary>
-		private Gender _gender;
+		//TODO: remove +
 
 		/// <summary>
 		/// Возвращает или задает имя персоны
@@ -46,11 +42,11 @@ namespace Model
 		/// <summary>
 		/// Возвращает или задает фамилию персоны
 		/// </summary>
-		public string SurName
+		public string Surname
 		{
-			get { return _surName; }
+			get { return _surname; }
 			//TODO: validation
-			set { _surName = value; }
+			set { _surname = value; }
 		}
 
 		/// <summary>
@@ -70,27 +66,23 @@ namespace Model
 			}
 		}
 
-		//TODO: refactor
+		//TODO: refactor +
 		/// <summary>
 		/// Возвращает или задает пол персоны
 		/// </summary>
-		public Gender Gender
-		{
-			get { return _gender; }
-			set { _gender = value; }
-		}
+		public Gender Gender { get; set; }
 
 		/// <summary>
 		/// Создаёт персону с заданными данными
 		/// </summary>
 		/// <param name="firstName">Имя персоны</param>
-		/// <param name="surName">Фамилия персоны</param>
+		/// <param name="surname">Фамилия персоны</param>
 		/// <param name="age">Возраст персоны</param>
 		/// <param name="gender">Пол персоны</param>
-		public Person(string firstName, string surName, int age, Gender gender)
+		public Person(string firstName, string surname, int age, Gender gender)
 		{
 			FirstName = firstName;
-			SurName = surName;
+			Surname = surname;
 			Age = age;
 			Gender = gender;
 		}
@@ -104,7 +96,7 @@ namespace Model
 			Console.Write("Введите имя: ");
 			FirstName = Console.ReadLine() ?? string.Empty;
 			Console.Write("Введите фамилию: ");
-			SurName = Console.ReadLine() ?? string.Empty;
+			Surname = Console.ReadLine() ?? string.Empty;
 			Console.Write("Введите возраст: ");
 			Age = int.Parse(Console.ReadLine() ?? string.Empty);
 			Console.Write("Введите пол (Male/Female): ");
@@ -118,10 +110,20 @@ namespace Model
 		public void Print()
 		{
 			Console.WriteLine($"Имя: {FirstName}");
-			Console.WriteLine($"Фамилия: {SurName}");
+			Console.WriteLine($"Фамилия: {Surname}");
 			Console.WriteLine($"Возраст: {Age}");
 			Console.WriteLine($"Пол: {Gender}");
 		}
+
+		/// <summary>
+		/// Минимальный возраст для случайной генерации
+		/// </summary>
+		private const int MinRandomAge = 0;
+
+		/// <summary>
+		/// Максимальный возраст для случайной генерации
+		/// </summary>
+		private const int MaxRandomAge = 123;
 
 		/// <summary>
 		/// Создаёт случайную персону
@@ -129,37 +131,40 @@ namespace Model
 		/// <returns>Случайно созданная персона</returns>
 		public static Person GetRandomPerson()
 		{
+			// Объявляет массив мужских имён 
 			string[] maleNames = { "Иван", "Сергей", "Дмитрий" };
+			// Объявляет массив женских имён
 			string[] femaleNames = { "Анна", "Мария", "Елена" };
 
-			string[] maleSurNames = { "Иванов", "Петров", "Сидоров" };
-			string[] femaleSurNames = { "Иванова", "Петрова", "Сидорова" };
+			// Объявляет массив мужских фамилий
+			string[] maleSurnames = { "Иванов", "Петров", "Сидоров" };
+			// Объявляет массив женских фамилий 
+			string[] femaleSurnames = { "Иванова", "Петрова", "Сидорова" };
 
+			// Генератор случайных чисел
 			Random random = Random.Shared;
 
+			// Случайно выбирает пол: Next(2) даёт 0 или 1; 0 → Male, иначе → Female
 			Gender gender = random.Next(2) == 0
 				? Gender.Male
 				: Gender.Female;
 
-			string firstName;
-			//TODO: RSDN
-			string surName;
+			// Тернарной операцией выбирает массив имён, соответствующий
+			// выбранному полу
+			string[] names = gender == Gender.Male ? maleNames : femaleNames;
+			// Аналогично выбирает массив фамилий нужного пола
+			string[] surnames = gender == Gender.Male ? maleSurnames : femaleSurnames;
 
-			if (gender == Gender.Male)
-			{
-				firstName = maleNames[random.Next(maleNames.Length)];
-				surName = maleSurNames[random.Next(maleSurNames.Length)];
-			}
-			else
-			{
-				firstName = femaleNames[random.Next(femaleNames.Length)];
-				surName = femaleSurNames[random.Next(femaleSurNames.Length)];
-			}
+			// Берёт случайное имя из выбранного массива имен
+			string firstName = names[random.Next(names.Length)];
+			// Берёт случайную фамилию из выбранного массива фамилий
+			string surname = surnames[random.Next(surnames.Length)];
 
-			//TODO: to const
-			int age = random.Next(18, 71);
-
-			return new Person(firstName, surName, age, gender);
+			// Генерирует случайный возраст в диапазоне MinRandomAge; MaxRandomAge
+			int age = random.Next(MinRandomAge, MaxRandomAge);
+			// Создает нового человека с полученными данными и возвращает
+			// его из метода
+			return new Person(firstName, surname, age, gender);
 		}
 	}
 }
