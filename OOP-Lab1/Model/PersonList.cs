@@ -14,12 +14,12 @@ namespace Model
 		/// <summary>
 		/// Начальная вместимость массива персон
 		/// </summary>
-		private const int _default = 10;
+		private const int DefaultCapacity = 10;
 
 		/// <summary>
 		/// Шаг увеличения и уменьшения вместимости массива
 		/// </summary>
-		private const int _resize = 10;
+		private const int ResizeStep = 10;
 
 		/// <summary>
 		/// Хранит массив персон
@@ -36,7 +36,7 @@ namespace Model
 		/// </summary>
 		public PersonList()
 		{
-			_persons = new Person[_default];
+			_persons = new Person[DefaultCapacity];
 			_count = 0;
 		}
 
@@ -49,7 +49,7 @@ namespace Model
 		{
 			if (_count == _persons.Length)
 			{
-				Person[] personsNew = new Person[_persons.Length + _resize];
+				Person[] personsNew = new Person[_persons.Length + ResizeStep];
 
 				for (int i = 0; i < _count; i++)
 				{
