@@ -76,15 +76,14 @@ if (secondList.Count == 0)
 
 Console.WriteLine();
 Console.WriteLine("Демонстрация работы методов класса Person:");
-Console.WriteLine();
 
 Person inputPerson = new Person(
 	"Тест", "Тестов", 20, Gender.Male);
 
-inputPerson.ReadFromConsole();
+ReadPersonFromConsole(inputPerson);
 Console.WriteLine();
 Console.WriteLine("Введённые данные персоны:");
-inputPerson.Print();
+PrintPerson(inputPerson);
 
 WaitForKeyPress();
 
@@ -92,7 +91,7 @@ Console.WriteLine();
 Console.WriteLine("Создание случайной персоны:");
 Person randomPerson = Person.GetRandomPerson();
 
-randomPerson.Print();
+PrintPerson(randomPerson);
 
 Console.WriteLine();
 Console.WriteLine("Нажмите Enter для завершения программы.");
@@ -109,11 +108,7 @@ static void PrintPersonList(PersonList list, string header)
 	for (int i = 0; i < list.Count; i++)
 	{
 		Person person = list.GetPersonAt(i);
-		Console.WriteLine(
-			$"Имя: {person.FirstName}, " +
-			$"Фамилия: {person.Surname}, " +
-			$"Возраст: {person.Age}, " +
-			$"Пол: {person.Gender}");
+		PrintPerson(person);
 	}
 }
 
@@ -126,4 +121,33 @@ static void WaitForKeyPress()
 	Console.WriteLine("Нажмите любую клавишу для продолжения");
 	Console.ReadKey();
 	Console.WriteLine();
+}
+
+/// <summary>
+/// Выводит информацию об одной персоне на экран
+/// </summary>
+/// <param name="person">Выводимая персона</param>
+static void PrintPerson(Person person)
+{
+	Console.WriteLine(
+		$"Имя: {person.FirstName}, " +
+		$"Фамилия: {person.Surname}, " +
+		$"Возраст: {person.Age}, " +
+		$"Пол: {person.Gender}");
+}
+
+/// <summary>
+/// Считывает данные персоны с клавиатуры
+/// </summary>
+/// <param name="person">Персона, в которую записываются данные</param>
+static void ReadPersonFromConsole(Person person)
+{
+	Console.Write("Введите имя: ");
+	person.FirstName = Console.ReadLine() ?? string.Empty;
+	Console.Write("Введите фамилию: ");
+	person.Surname = Console.ReadLine() ?? string.Empty;
+	Console.Write("Введите возраст: ");
+	person.Age = int.Parse(Console.ReadLine() ?? string.Empty);
+	Console.Write("Введите пол (Male/Female): ");
+	person.Gender = Enum.Parse<Gender>(Console.ReadLine() ?? string.Empty);
 }

@@ -83,33 +83,9 @@ namespace Model
 			Gender = gender;
 		}
 
-		//TODO: refactor
-		/// <summary>
-		/// Считывает данные персоны с клавиатуры
-		/// </summary>
-		public void ReadFromConsole()
-		{
-			Console.Write("Введите имя: ");
-			FirstName = Console.ReadLine() ?? string.Empty;
-			Console.Write("Введите фамилию: ");
-			Surname = Console.ReadLine() ?? string.Empty;
-			Console.Write("Введите возраст: ");
-			Age = int.Parse(Console.ReadLine() ?? string.Empty);
-			Console.Write("Введите пол (Male/Female): ");
-			Gender = Enum.Parse<Gender>(Console.ReadLine() ?? string.Empty);
-		}
+		//TODO: refactor +
 
-		//TODO: refactor
-		/// <summary>
-		/// Выводит информацию о персоне на экран
-		/// </summary>
-		public void Print()
-		{
-			Console.WriteLine($"Имя: {FirstName}");
-			Console.WriteLine($"Фамилия: {Surname}");
-			Console.WriteLine($"Возраст: {Age}");
-			Console.WriteLine($"Пол: {Gender}");
-		}
+		//TODO: refactor +
 
 		/// <summary>
 		/// Минимальный возраст для случайной генерации
