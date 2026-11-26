@@ -24,10 +24,12 @@ PrintPersonList(secondList, "Второй список персон:");
 
 WaitForKeyPress();
 
-Console.WriteLine();
+
 Person newPerson = new Person(
 	"Елена", "Морозова", 27, Gender.Female);
 firstList.AddPerson(newPerson);
+//TODO: duplication
+Console.WriteLine();
 PrintPersonList(firstList, "Первый список персон:");
 
 WaitForKeyPress();
@@ -35,18 +37,22 @@ WaitForKeyPress();
 Person copiedPerson = firstList.GetPersonAt(1);
 secondList.AddPerson(copiedPerson);
 
+//TODO: duplication
 Console.WriteLine();
 Console.WriteLine(
 	$"Общий объект: {copiedPerson.FirstName} {copiedPerson.Surname}");
 Console.WriteLine(
 	"Один и тот же объект находится в обоих списках: " +
-	object.ReferenceEquals(firstList.GetPersonAt(1), secondList.GetPersonAt(3)));
+	object.ReferenceEquals(
+		firstList.GetPersonAt(1),
+		secondList.GetPersonAt(3)));
 
 WaitForKeyPress();
 
 Person delPerson = firstList.GetPersonAt(1);
 firstList.RemovePerson(delPerson);
 
+//TODO: duplication
 Console.WriteLine();
 Console.WriteLine(
 	$"Персона, удаленная из первого списка: " +
@@ -59,7 +65,8 @@ Console.WriteLine(
 	secondList.Count);
 Console.WriteLine(
 	$"Объект в конце второго списка: " +
-	$"{secondList.GetPersonAt(3).FirstName} {secondList.GetPersonAt(3).Surname}");
+	$"{secondList.GetPersonAt(3).FirstName} " +
+	$"{secondList.GetPersonAt(3).Surname}");
 Console.WriteLine(
 	"Объект из первого списка не был удален из второго списка: " +
 	object.ReferenceEquals(copiedPerson, secondList.GetPersonAt(3)));
@@ -67,6 +74,7 @@ Console.WriteLine(
 WaitForKeyPress();
 
 secondList.Clear();
+//TODO: duplication
 Console.WriteLine();
 Console.WriteLine("Второй список персон:");
 if (secondList.Count == 0)
@@ -74,6 +82,7 @@ if (secondList.Count == 0)
 	Console.WriteLine("Персоны не добавлены. Второй список пуст");
 }
 
+//TODO: duplication
 Console.WriteLine();
 Console.WriteLine("Демонстрация работы методов класса Person:");
 
@@ -81,18 +90,21 @@ Person inputPerson = new Person(
 	"Тест", "Тестов", 20, Gender.Male);
 
 ReadPersonFromConsole(inputPerson);
+//TODO: duplication
 Console.WriteLine();
 Console.WriteLine("Введённые данные персоны:");
 PrintPerson(inputPerson);
 
 WaitForKeyPress();
 
+//TODO: duplication
 Console.WriteLine();
 Console.WriteLine("Создание случайной персоны:");
 Person randomPerson = Person.GetRandomPerson();
 
 PrintPerson(randomPerson);
 
+//TODO: duplication
 Console.WriteLine();
 Console.WriteLine("Нажмите Enter для завершения программы.");
 Console.ReadLine();
@@ -117,6 +129,7 @@ static void PrintPersonList(PersonList list, string header)
 /// </summary>
 static void WaitForKeyPress()
 {
+	//TODO: duplication
 	Console.WriteLine();
 	Console.WriteLine("Нажмите любую клавишу для продолжения");
 	Console.ReadKey();

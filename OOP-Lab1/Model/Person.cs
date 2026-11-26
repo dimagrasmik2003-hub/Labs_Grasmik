@@ -83,10 +83,6 @@ namespace Model
 			Gender = gender;
 		}
 
-		//TODO: refactor +
-
-		//TODO: refactor +
-
 		/// <summary>
 		/// Минимальный возраст для случайной генерации
 		/// </summary>

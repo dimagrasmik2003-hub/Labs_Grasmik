@@ -82,6 +82,7 @@ namespace Model
 		/// <param name="index">Индекс удаляемой персоны</param>
 		public void RemovePersonAt(int index)
 		{
+			//TODO: duplication
 			if (index < 0 || index >= _count)
 			{
 				throw new ArgumentOutOfRangeException("index");
@@ -103,6 +104,7 @@ namespace Model
 		/// <returns>Персона по указанному индексу</returns>
 		public Person GetPersonAt(int index)
 		{
+			//TODO: duplication
 			if (index < 0 || index >= _count)
 			{
 				throw new ArgumentOutOfRangeException("index");
