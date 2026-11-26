@@ -19,6 +19,7 @@ namespace Model
 		/// <summary>
 		/// Фамилия персоны
 		/// </summary>
+		/// //TODO: RSDN
 		private string _surName = string.Empty;
 
 		/// <summary>
@@ -26,6 +27,7 @@ namespace Model
 		/// </summary>
 		private int _age;
 
+		//TODO: remove
 		/// <summary>
 		/// Пол персоны
 		/// </summary>
@@ -37,6 +39,7 @@ namespace Model
 		public string FirstName
 		{
 			get { return _firstName; }
+			//TODO: validation
 			set { _firstName = value; }
 		}
 
@@ -46,6 +49,7 @@ namespace Model
 		public string SurName
 		{
 			get { return _surName; }
+			//TODO: validation
 			set { _surName = value; }
 		}
 
@@ -57,6 +61,8 @@ namespace Model
 			get { return _age; }
 			set
 			{
+				//TODO: validation
+
 				if (value >= 0)
 				{
 					_age = value;
@@ -64,6 +70,7 @@ namespace Model
 			}
 		}
 
+		//TODO: refactor
 		/// <summary>
 		/// Возвращает или задает пол персоны
 		/// </summary>
@@ -88,6 +95,7 @@ namespace Model
 			Gender = gender;
 		}
 
+		//TODO: refactor
 		/// <summary>
 		/// Считывает данные персоны с клавиатуры
 		/// </summary>
@@ -103,6 +111,7 @@ namespace Model
 			Gender = Enum.Parse<Gender>(Console.ReadLine() ?? string.Empty);
 		}
 
+		//TODO: refactor
 		/// <summary>
 		/// Выводит информацию о персоне на экран
 		/// </summary>
@@ -133,6 +142,7 @@ namespace Model
 				: Gender.Female;
 
 			string firstName;
+			//TODO: RSDN
 			string surName;
 
 			if (gender == Gender.Male)
@@ -146,6 +156,7 @@ namespace Model
 				surName = femaleSurNames[random.Next(femaleSurNames.Length)];
 			}
 
+			//TODO: to const
 			int age = random.Next(18, 71);
 
 			return new Person(firstName, surName, age, gender);

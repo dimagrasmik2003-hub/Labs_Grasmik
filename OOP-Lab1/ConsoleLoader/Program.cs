@@ -24,6 +24,7 @@ secondList.AddPerson(secondPerson1);
 secondList.AddPerson(secondPerson2);
 secondList.AddPerson(secondPerson3);
 
+//TODO: duplication
 //Вывод в консоль содержимого первого списков персон
 Console.WriteLine("Первый список персон:");
 for (int i = 0; i < firstList.Count; i++)
@@ -35,6 +36,8 @@ for (int i = 0; i < firstList.Count; i++)
 		$"Возраст: {person.Age}, " +
 		$"Пол: {person.Gender}");
 }
+
+//TODO: duplication
 
 //Вывод в консоль содержимого второго списков персон
 Console.WriteLine("Второй список персон:");
@@ -48,6 +51,7 @@ for (int i = 0; i < secondList.Count; i++)
 		$"Пол: {person.Gender}");
 }
 
+//TODO: duplication
 //Вывод в консоль сообщения
 Console.WriteLine();
 Console.WriteLine("Нажмите любую клавишу для продолжения");
@@ -59,6 +63,7 @@ Person newPerson = new Person(
 	"Елена", "Морозова", 27, Gender.Female);
 firstList.AddPerson(newPerson);
 
+//TODO: duplication
 //Вывод в консоль содержимого первого списков c новой персоной
 Console.WriteLine();
 Console.WriteLine("Первый список после добавления:");
@@ -72,6 +77,7 @@ for (int i = 0; i < firstList.Count; i++)
 		$"Пол: {person.Gender}");
 }
 
+//TODO: duplication
 //Вывод в консоль сообщения
 Console.WriteLine();
 Console.WriteLine("Нажмите любую клавишу для продолжения");
@@ -90,6 +96,7 @@ Console.WriteLine(
 	"Один и тот же объект находится в обоих списках: " +
 	object.ReferenceEquals(firstList.GetPersonAt(1),secondList.GetPersonAt(3)));
 
+//TODO: duplication
 //Вывод в консоль сообщения
 Console.WriteLine();
 Console.WriteLine("Нажмите любую клавишу для продолжения");
@@ -118,6 +125,7 @@ Console.WriteLine(
 	"Объект из первого списка не был удален из второго списка: " +
 	object.ReferenceEquals(copiedPerson, secondList.GetPersonAt(3)));
 
+//TODO: duplication
 //Вывод в консоль сообщения
 Console.WriteLine();
 Console.WriteLine("Нажмите любую клавишу для продолжения");
@@ -151,6 +159,7 @@ Console.WriteLine();
 Console.WriteLine("Введённые данные персоны:");
 inputPerson.Print();
 
+//TODO: duplication
 // Ожидание завершения программы
 Console.WriteLine();
 Console.WriteLine("Нажмите любую клавишу для продолжения");

@@ -11,6 +11,7 @@ namespace Model
 	/// </summary>
 	public class PersonList
 	{
+		//TODO: to array
 		/// <summary>
 		/// Хранит список персон
 		/// </summary>
