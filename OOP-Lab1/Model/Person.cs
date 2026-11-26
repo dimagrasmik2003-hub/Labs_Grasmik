@@ -127,39 +127,26 @@ namespace Model
 		/// <returns>Случайно созданная персона</returns>
 		public static Person GetRandomPerson()
 		{
-			// Объявляет массив мужских имён 
 			string[] maleNames = { "Иван", "Сергей", "Дмитрий" };
-			// Объявляет массив женских имён
 			string[] femaleNames = { "Анна", "Мария", "Елена" };
 
-			// Объявляет массив мужских фамилий
 			string[] maleSurnames = { "Иванов", "Петров", "Сидоров" };
-			// Объявляет массив женских фамилий 
 			string[] femaleSurnames = { "Иванова", "Петрова", "Сидорова" };
 
-			// Генератор случайных чисел
 			Random random = Random.Shared;
 
-			// Случайно выбирает пол: Next(2) даёт 0 или 1; 0 → Male, иначе → Female
 			Gender gender = random.Next(2) == 0
 				? Gender.Male
 				: Gender.Female;
 
-			// Тернарной операцией выбирает массив имён, соответствующий
-			// выбранному полу
 			string[] names = gender == Gender.Male ? maleNames : femaleNames;
-			// Аналогично выбирает массив фамилий нужного пола
 			string[] surnames = gender == Gender.Male ? maleSurnames : femaleSurnames;
 
-			// Берёт случайное имя из выбранного массива имен
 			string firstName = names[random.Next(names.Length)];
-			// Берёт случайную фамилию из выбранного массива фамилий
 			string surname = surnames[random.Next(surnames.Length)];
 
-			// Генерирует случайный возраст в диапазоне MinRandomAge; MaxRandomAge
 			int age = random.Next(MinRandomAge, MaxRandomAge);
-			// Создает нового человека с полученными данными и возвращает
-			// его из метода
+
 			return new Person(firstName, surname, age, gender);
 		}
 	}
