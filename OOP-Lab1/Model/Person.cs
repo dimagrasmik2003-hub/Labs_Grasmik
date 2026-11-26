@@ -19,15 +19,12 @@ namespace Model
 		/// <summary>
 		/// Фамилия персоны
 		/// </summary>
-		/// //TODO: RSDN +
 		private string _surname = string.Empty;
 
 		/// <summary>
 		/// Возраст персоны
 		/// </summary>
 		private int _age;
-
-		//TODO: remove +
 
 		/// <summary>
 		/// Возвращает или задает имя персоны
@@ -66,7 +63,6 @@ namespace Model
 			}
 		}
 
-		//TODO: refactor +
 		/// <summary>
 		/// Возвращает или задает пол персоны
 		/// </summary>

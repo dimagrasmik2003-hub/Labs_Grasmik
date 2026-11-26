@@ -24,15 +24,12 @@ secondList.AddPerson(secondPerson1);
 secondList.AddPerson(secondPerson2);
 secondList.AddPerson(secondPerson3);
 
-//TODO: duplication +
 // Вывод в консоль содержимого первого списка персон
 PrintPersonList(firstList, "Первый список персон:");
 
-//TODO: duplication +
 // Вывод в консоль содержимого первого списка персон
 PrintPersonList(secondList, "Второй список персон:");
 
-//TODO: duplication +
 //Вывод в консоль сообщения
 WaitForKeyPress();
 
@@ -42,11 +39,9 @@ Person newPerson = new Person(
 	"Елена", "Морозова", 27, Gender.Female);
 firstList.AddPerson(newPerson);
 
-//TODO: duplication +
 // Вывод в консоль содержимого первого списка персон
 PrintPersonList(firstList, "Первый список персон:");
 
-//TODO: duplication +
 //Вывод в консоль сообщения
 WaitForKeyPress();
 
@@ -62,7 +57,6 @@ Console.WriteLine(
 	"Один и тот же объект находится в обоих списках: " +
 	object.ReferenceEquals(firstList.GetPersonAt(1), secondList.GetPersonAt(3)));
 
-//TODO: duplication +
 //Вывод в консоль сообщения
 WaitForKeyPress();
 
@@ -88,7 +82,6 @@ Console.WriteLine(
 	"Объект из первого списка не был удален из второго списка: " +
 	object.ReferenceEquals(copiedPerson, secondList.GetPersonAt(3)));
 
-//TODO: duplication +
 //Вывод в консоль сообщения
 WaitForKeyPress();
 
@@ -119,7 +112,6 @@ Console.WriteLine();
 Console.WriteLine("Введённые данные персоны:");
 inputPerson.Print();
 
-//TODO: duplication +
 // Ожидание завершения программы
 WaitForKeyPress();
 

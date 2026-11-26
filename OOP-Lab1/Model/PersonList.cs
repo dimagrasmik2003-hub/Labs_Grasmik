@@ -11,7 +11,6 @@ namespace Model
 	/// </summary>
 	public class PersonList
 	{
-		//TODO: to array +
 		/// <summary>
 		/// Начальная вместимость массива персон
 		/// </summary>
